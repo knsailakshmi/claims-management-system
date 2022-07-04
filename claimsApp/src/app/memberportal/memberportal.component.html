@@ -1,0 +1,65 @@
+<div class="container py-3">
+  <header class="text-center mb-4">
+    <h1 class="font-weight-bold" style="font-size: 50px">Member Portal</h1>
+  </header>
+  <div class="px-5 py-4" style="background-color: #a9d8e8; border-radius: 30px">
+    <h2 class="font-weight-bold mb-2" style="color: white">Welcome !!</h2>
+    <p class="font-italic mb-4" style="color: white">Your Member ID is</p>
+
+    <div class="row pb-5 mb-4 mt-10">
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="card shadow-sm border-0 rounded">
+          <div class="card-body p-0">
+            <img
+              src="https://img.freepik.com/free-vector/software-update-illustration_108061-429.jpg?w=740"
+              alt=""
+              class="w-100 card-img-top"
+            />
+            <div class="p-4">
+              <h5 class="mb-0 demo">View Claim Status</h5>
+              <p class="small text-muted demo">
+                To check the status of submitted claim
+              </p>
+              <div class="container">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg"
+                  style="border-radius: 100px"
+                  (click)="onStatusClick()"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="card shadow-sm border-0 rounded">
+          <div class="card-body p-0">
+            <img
+              src="https://www.bluevision.ai/wp-content/uploads/2021/04/deepfusion-header.jpg"
+              alt=""
+              class="w-100 card-img-top"
+            />
+            <div class="p-4">
+              <h5 class="mb-0 demo">Submit Claim</h5>
+              <p class="small text-muted demo">To Submit the claims</p>
+              <div class="container">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg"
+                  style="border-radius: 100px"
+                  (click)="onSubmitClick()"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

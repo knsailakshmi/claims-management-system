@@ -1,0 +1,102 @@
+<div class="back">
+  <div class="container">
+    <form>
+      <div class="heading">
+        <h2 class="heading--highlight highlight">Submit Claim</h2>
+      </div>
+      <div class="from-group row">
+        <div class="col-xs-6 col-md-6 row__content">
+          <label for="policyID">Policy Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="policyID"
+            placeholder="Enter policy id"
+            ngModel
+            required
+            #policyId="ngModel"
+          />
+        </div>
+
+        <div class="col-xs-6 col-md-6 row__content">
+          <label for="policyName">Policy Name</label>
+          <select
+            class="form-control"
+            name="policyName"
+            ngModel
+            required
+            #policyName="ngModel"
+          ></select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-xs-6 col-md-6 row__content">
+          <label for="policyProvider">Policy Provider</label>
+          <select
+            class="form-control"
+            name="policyProvider"
+            ngModel
+            required
+            #policyProvider="ngModel"
+          ></select>
+        </div>
+
+        <div class="col-xs-6 col-md-6 row__content">
+          <label for="policyStartDate">Policy start date</label>
+          <input
+            type="date"
+            class="form-control"
+            name="policyStartDate"
+            ngModel
+            required
+            #policyStartDate="ngModel"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-xs-6 col-md-6 row__content">
+          <label for="policyEndDate">Policy end date</label>
+          <input
+            type="date"
+            class="form-control"
+            name="policyEndDate"
+            ngModel
+            required
+            #policyEndDate="ngModel"
+          />
+        </div>
+        <div class="col-xs-6 col-md-6 row__content">
+          <label for="remarks">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter description"
+            name="description"
+            ngModel
+            required
+            #description="ngModel"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-6 col-md-6 row__content">
+          <label for="claimAmount">Claimed Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Enter claimed amount"
+            name="claimAmount"
+            ngModel
+            required
+            #claimAmount="ngModel"
+          />
+        </div>
+        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+          <button class="btn">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

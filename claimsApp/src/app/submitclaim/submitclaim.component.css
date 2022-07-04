@@ -1,0 +1,52 @@
+h2 {
+ text-align: center;
+ margin: 10px 0 40px 0;
+}
+
+.back {
+ background-image: linear-gradient(to bottom right, #d5ecf1, #e7e9f5);
+ background-size: cover;
+ height: 100vh;
+ border-radius: 20px;
+}
+
+.container {
+ /*border: 2px solid rgb(149 146 146);*/
+ margin-top: 50px;
+ padding: 30px 80px;
+ border-radius: 20px;
+}
+
+.row {
+ height: 16vh;
+}
+
+.row__content {
+ margin-bottom: 30px;
+ width: 20%;
+}
+
+input.ng-invalid.ng-touched {
+ border: 2px solid red;
+}
+
+.spinner {
+ text-align: center;
+}
+
+.btn {
+ background-color: rgb(117, 107, 198);
+ border:none;
+ color: white;
+ padding: 15px 32px;
+ text-align: center;
+ text-decoration: none;
+ border-radius: 50px;
+ display: inline-block;
+ font-size: 16px;
+ margin: 4px 2px;
+}
+
+.btn[disabled] {
+ cursor: not-allowed;
+}
