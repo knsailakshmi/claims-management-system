@@ -8,13 +8,19 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   token:string|null=null;
+  user:any='';
+  roles:string='';
   constructor(private tokenStorage:TokenStorageService,private router:Router){
      
   }
   ngOnInit():void{
       this.token= this.tokenStorage.getToken();
-          if (this.token) {
+      this.user=this.tokenStorage.getUser();
+      this.roles=this.user.roles[0];
+        if (this.token && this.roles=='ROLE_USER'){
         this.router.navigate(['./memberportal']);
+      }else{
+        this.router.navigate(['./adminportal']);
       }
   }
   onScrollTo(element: HTMLElement) {

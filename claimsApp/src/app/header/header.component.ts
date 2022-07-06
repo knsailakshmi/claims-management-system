@@ -11,6 +11,7 @@ import { TokenStorageService } from "../_services/token-storage.service";
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   username: string = '';
+  role:string='ROLE_USER';
   user:any;
   isAuthenticated: boolean = false;
   authSubscription: Subscription = new Subscription();
@@ -23,7 +24,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // });
     this.user=this.tokenStorage.getUser()
     this.isAuthenticated=this.user.name?true:false
-    console.log(this.user);
+    this.role=this.user.roles[0];
+   
     
     this.username=this.user.name    
 

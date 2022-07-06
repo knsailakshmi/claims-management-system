@@ -88,8 +88,11 @@ export class AuthComponent implements OnInit, OnDestroy {
         
         this.isLoggedIn=true
         this.error = null;
+        if(data.roles[0]=='ROLE_USER'){
         this.router.navigate(['./memberportal']);
-        
+        }else{
+          this.router.navigate(['./adminportal'])
+        }
       },
       err => {
         this.isValidating = false;
