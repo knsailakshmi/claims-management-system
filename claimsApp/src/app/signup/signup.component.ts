@@ -45,10 +45,10 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
 
-  //   this.token= this.tokenStorageService.getToken();
-  //   if (this.token) {
-  // this.router.navigate(['./memberportal']);
-// }
+    this.token= this.tokenStorageService.getToken();
+    if (this.token) {
+  this.router.navigate(['./memberportal']);
+}
   }
 
   get f(){
