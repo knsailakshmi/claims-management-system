@@ -10,7 +10,7 @@
                   Sign up Portal
                 </p>
 
-                <form class="mx-1 mx-md-4">
+                <form class="mx-1 mx-md-4" (ngSubmit)="onSubmit()" [formGroup]="form">
                   <div class="d-flex flex-row align-items-center mb-4">
                     <a href="#"><i class="fas fa-user fa-lg me-3 fa-fw"></i></a>
                     <div class="form-outline flex-fill mb-0">
@@ -21,8 +21,14 @@
                         type="text"
                         id="form3Example1c"
                         class="form-control"
+                        name="username"
+                        formControlName="username"
                       />
                     </div>
+                    <div *ngIf="f.username.touched && f.username.invalid" class="alert alert-danger">
+                    <div *ngIf="f.username.errors?.required">Name is required.</div>
+                    </div>
+
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
@@ -36,7 +42,12 @@
                         type="email"
                         id="form3Example3c"
                         class="form-control"
+                        name="email"
+                        formControlName="email"
                       />
+                    </div>
+                    <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                    <div *ngIf="f.email.errors?.required">Email is required.</div>
                     </div>
                   </div>
 
@@ -50,8 +61,12 @@
                         type="password"
                         id="form3Example4c"
                         class="form-control"
+                        name="password"
+                        formControlName="password"
                       />
                     </div>
+                    <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger"></div>
+                      <div *ngIf="f.password.errors?.required">Password is required.</div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
@@ -64,8 +79,14 @@
                         type="password"
                         id="form3Example4cd"
                         class="form-control"
+                        name="confirmPassword"
+                        formControlName="confirmPassword"
                       />
                     </div>
+                    <div *ngIf="f.confirmPassword.touched && f.confirmPassword.invalid" class="alert alert-danger">
+                      <div *ngIf="f.confirmPassword.errors?.required">Password is required.</div>
+                      <div *ngIf="f.confirmPassword.errors?.confirmedValidator">Password and Confirm Password must be match.</div>
+                      </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
@@ -78,7 +99,12 @@
                         type="text"
                         id="form3Example1c"
                         class="form-control"
+                        name="address"
+                        formControlName="address"
                       />
+                    </div>
+                    <div *ngIf="f.address.touched && f.address.invalid" class="alert alert-danger">
+                    <div *ngIf="f.address.errors?.required">Address is required.</div>
                     </div>
                   </div>
 
@@ -92,12 +118,17 @@
                         type="tel"
                         id="form3Example1c"
                         class="form-control"
+                        name="phoneNo"
+                        formControlName="phoneNo"
                       />
+                    </div>
+                    <div *ngIf="f.phoneNo.touched && f.phoneNo.invalid" class="alert alert-danger">
+                    <div *ngIf="f.phoneNo.errors?.required">PhoneNo is required.</div>
                     </div>
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg">
+                    <button type="button" class="btn btn-primary btn-lg" [disabled]="!form.valid" (click)="onSubmit()">
                       SignUp
                     </button>
                   </div>
