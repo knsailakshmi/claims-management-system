@@ -8,6 +8,8 @@ import { Subscription } from 'rxjs';
 // import { AuthService } from './auth.service';
 import {AuthService} from '../_services/auth.service'
 import { TokenStorageService } from "../_services/token-storage.service";
+import { UserService } from '../_services/user.service';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-auth',
@@ -26,8 +28,13 @@ export class AuthComponent implements OnInit, OnDestroy {
   error = null;
   userSubscription: Subscription = new Subscription();
   token:string|null=null
+  user:any;
 
-  constructor(private authService: AuthService, private router: Router,private tokenStorageService:TokenStorageService,private fb: FormBuilder) {
+  constructor(private authService: AuthService, 
+    private router: Router,
+    private tokenStorageService:TokenStorageService,
+    private fb: FormBuilder,
+    private userService:UserService) {
     this.form=fb.group({
       username:['',[Validators.required]],
       password: ['',[Validators.required]],
@@ -44,8 +51,13 @@ export class AuthComponent implements OnInit, OnDestroy {
   // }
   ngOnInit(): void {
     this.token= this.tokenStorageService.getToken();
-          if (this.token) {
+    this.user=this.tokenStorageService.getUser();
+          if (this.token && this.user.roles[0]=="ROLE_USER") {
+          this.userService.changeLoginStatus(true)
         this.router.navigate(['./memberportal']);
+      }else if(this.token && this.user.roles[0]=="ROLE_ADMIN"){
+        this.userService.changeLoginStatus(true)
+        this.router.navigate(['./adminportal']);
       }
     
   }
@@ -88,6 +100,7 @@ export class AuthComponent implements OnInit, OnDestroy {
         
         this.isLoggedIn=true
         this.error = null;
+        this.userService.changeLoginStatus(true);
         if(data.roles[0]=='ROLE_USER'){
         this.router.navigate(['./memberportal']);
         }else{

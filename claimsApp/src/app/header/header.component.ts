@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from "../_services/auth.service";
 import { TokenStorageService } from "../_services/token-storage.service";
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -14,8 +15,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   role:string='ROLE_USER';
   user:any;
   isAuthenticated: boolean = false;
+  isLogged:boolean=true;
   authSubscription: Subscription = new Subscription();
-  constructor(private authService: AuthService,private tokenStorage:TokenStorageService,private router:Router) {}
+  constructor(private authService: AuthService,private tokenStorage:TokenStorageService,private router:Router,private userService:UserService) {}
 
   ngOnInit() {
     // this.authSubscription = this.authService.user.subscribe((user) => {
@@ -23,8 +25,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     //   this.username = user ? user.username : '';
     // });
     this.user=this.tokenStorage.getUser()
+    this.isLogged=this.userService.getLoginStatus();
+    console.log("IS aUTHENTICATED "+this.isLogged);
     this.isAuthenticated=this.user.name?true:false
-    this.role=this.user.roles[0];
+
+    
+    
+    // this.role=this.user.roles[0];
    
     
     this.username=this.user.name    
@@ -37,9 +44,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onLogout() {
     // this.authService.logout();
-    console.log("insdie the onlOgout");
-    
-    this.router.navigate(['./home']);
     this.tokenStorage.signOut();
+    console.log("insdie the onlOgout");
+    this.userService.changeLoginStatus(false);
+    this.isAuthenticated=false
+    this.router.navigate(['./home']);
+    
   }
 }

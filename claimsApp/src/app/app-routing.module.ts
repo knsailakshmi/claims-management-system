@@ -10,6 +10,7 @@ import { ProcessclaimComponent } from './processclaim/processclaim.component';
 import { SignupComponent } from './signup/signup.component';
 import { SubmitclaimComponent } from './submitclaim/submitclaim.component';
 import { UpdatememComponent } from './updatemem/updatemem.component';
+import { ViewclaimComponent } from './viewclaim/viewclaim.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'updatemem', component: UpdatememComponent},
   {path: 'claimsstatus', component: ClaimsstatusComponent},
   {path: 'adminportal', component: AdminportalComponent},
-  {path: 'processclaim', component:ProcessclaimComponent}
+  {path: 'processclaim', component:ProcessclaimComponent},
+  {path: 'viewclaim', component:ViewclaimComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

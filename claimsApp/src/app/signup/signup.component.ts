@@ -62,6 +62,8 @@ export class SignupComponent implements OnInit {
       data => {
         this.tokenStorageService.saveToken(data.token);
         this.tokenStorageService.saveUser(data);
+        console.log(data);
+        
         this.isLoggedIn=true
         this.error = null;
         this.router.navigate(['./memberportal']);
