@@ -19,7 +19,11 @@ import { ClaimsstatusComponent } from './claimsstatus/claimsstatus.component';
 import { AdminportalComponent } from './adminportal/adminportal.component';
 import { ProcessclaimComponent } from './processclaim/processclaim.component';
 import { FooterComponent } from './footer/footer.component';
+
 import { authInterceptorProviders } from './_helper/auth-interceptor.interceptor';
+
+import { ViewclaimComponent } from './viewclaim/viewclaim.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +40,8 @@ import { authInterceptorProviders } from './_helper/auth-interceptor.interceptor
     ClaimsstatusComponent,
     AdminportalComponent,
     ProcessclaimComponent,
-    FooterComponent
+    FooterComponent,
+    ViewclaimComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,ReactiveFormsModule],
   providers: [authInterceptorProviders,],

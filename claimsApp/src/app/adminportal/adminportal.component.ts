@@ -27,7 +27,7 @@ export class AdminportalComponent implements OnInit {
   
   }
   onProcessClick(){
-    this.router.navigateByUrl('processclaim');
+    this.router.navigateByUrl('viewclaim');
   }
 
 }
