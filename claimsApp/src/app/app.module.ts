@@ -19,6 +19,7 @@ import { ClaimsstatusComponent } from './claimsstatus/claimsstatus.component';
 import { AdminportalComponent } from './adminportal/adminportal.component';
 import { ProcessclaimComponent } from './processclaim/processclaim.component';
 import { FooterComponent } from './footer/footer.component';
+import { ViewclaimComponent } from './viewclaim/viewclaim.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FooterComponent } from './footer/footer.component';
     ClaimsstatusComponent,
     AdminportalComponent,
     ProcessclaimComponent,
-    FooterComponent
+    FooterComponent,
+    ViewclaimComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,ReactiveFormsModule],
   providers: [
