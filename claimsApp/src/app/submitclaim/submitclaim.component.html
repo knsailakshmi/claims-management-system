@@ -14,7 +14,7 @@
             placeholder="Enter policy id"
             ngModel
             required
-            [(ngModel)]="policyId"
+            [(ngModel)]="request.policyId"
           />
         </div>
 
@@ -27,7 +27,7 @@
             placeholder="Enter policy name"
             ngModel
             required
-            [(ngModel)]="policyName"
+            [(ngModel)]="request.policyName"
           />
         </div>
       </div>
@@ -42,7 +42,7 @@
             placeholder="Enter policy name"
             ngModel
             required
-            [(ngModel)]="policyProvider"
+            [(ngModel)]="request.policyProvider"
           />
         </div>
 
@@ -54,7 +54,7 @@
             name="policyStartDate"
             ngModel
             required
-            [(ngModel)]="policyStartDate"
+            [(ngModel)]="request.policyStartDate"
           />
         </div>
       </div>
@@ -68,7 +68,7 @@
             name="policyEndDate"
             ngModel
             required
-            [(ngModel)]="policyEndDate"
+            [(ngModel)]="request.policyEndDate"
           />
         </div>
         <div class="col-xs-6 col-md-6 row__content">
@@ -80,7 +80,7 @@
             name="description"
             ngModel
             required
-            [(ngModel)]="policyDescription"
+            [(ngModel)]="request.policyDescription"
           />
         </div>
         <div class="col-xs-6 col-md-6 row__content">
@@ -92,7 +92,7 @@
             name="claimDescription"
             ngModel
             required
-            [(ngModel)]="claimDescription"
+            [(ngModel)]="request.claimDescription"
           />
         </div>
       </div><br>
@@ -107,7 +107,7 @@
               name="claimAmount"
               ngModel
               required
-              [(ngModel)]="claimAmount"
+              [(ngModel)]="request.claimAmount"
             />
           </div>
         </div>
