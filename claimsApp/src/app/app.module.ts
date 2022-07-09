@@ -19,7 +19,11 @@ import { ClaimsstatusComponent } from './claimsstatus/claimsstatus.component';
 import { AdminportalComponent } from './adminportal/adminportal.component';
 import { ProcessclaimComponent } from './processclaim/processclaim.component';
 import { FooterComponent } from './footer/footer.component';
-import {DatePipe} from "@angular/common";
+
+import { authInterceptorProviders } from './_helper/auth-interceptor.interceptor';
+
+import { ViewclaimComponent } from './viewclaim/viewclaim.component';
+
 
 @NgModule({
   declarations: [
@@ -36,17 +40,11 @@ import {DatePipe} from "@angular/common";
     ClaimsstatusComponent,
     AdminportalComponent,
     ProcessclaimComponent,
-    FooterComponent
+    FooterComponent,
+    ViewclaimComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,ReactiveFormsModule],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
-      multi: true,
-    },
-    DatePipe
-  ],
+  providers: [authInterceptorProviders,],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
