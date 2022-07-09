@@ -33,4 +33,7 @@ export class AuthService {
       address:address
     }, httpOptions);
   }
+  getUser(id:string):Observable<any>{
+    return this.http.get(AUTH_API+id);
+  }
 }
