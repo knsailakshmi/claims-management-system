@@ -8,38 +8,42 @@
         <div class="col-xs-6 col-md-6 row__content">
           <label for="policyID">Policy Id</label>
           <input
-            type="text"
+            type="number"
             class="form-control"
-            name="policyID"
+            name="policyId"
             placeholder="Enter policy id"
             ngModel
             required
-            #policyId="ngModel"
+            [(ngModel)]="policyId"
           />
         </div>
 
         <div class="col-xs-6 col-md-6 row__content">
           <label for="policyName">Policy Name</label>
-          <select
+          <input
+            type="text"
             class="form-control"
             name="policyName"
+            placeholder="Enter policy name"
             ngModel
             required
-            #policyName="ngModel"
-          ></select>
+            [(ngModel)]="policyName"
+          />
         </div>
       </div>
 
       <div class="form-group row">
         <div class="col-xs-6 col-md-6 row__content">
           <label for="policyProvider">Policy Provider</label>
-          <select
+          <input
+            type="text"
             class="form-control"
             name="policyProvider"
+            placeholder="Enter policy name"
             ngModel
             required
-            #policyProvider="ngModel"
-          ></select>
+            [(ngModel)]="policyProvider"
+          />
         </div>
 
         <div class="col-xs-6 col-md-6 row__content">
@@ -50,7 +54,7 @@
             name="policyStartDate"
             ngModel
             required
-            #policyStartDate="ngModel"
+            [(ngModel)]="policyStartDate"
           />
         </div>
       </div>
@@ -64,11 +68,11 @@
             name="policyEndDate"
             ngModel
             required
-            #policyEndDate="ngModel"
+            [(ngModel)]="policyEndDate"
           />
         </div>
         <div class="col-xs-6 col-md-6 row__content">
-          <label for="remarks">Description</label>
+          <label for="description">Policy Description</label>
           <input
             type="text"
             class="form-control"
@@ -76,39 +80,41 @@
             name="description"
             ngModel
             required
-            #description="ngModel"
-          />
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-xs-6 col-md-6 row__content">
-          <label for="claimAmount">Policy Amount</label>
-          <input
-            type="number"
-            class="form-control"
-            placeholder="Enter policy amount"
-            name="policyAmount"
-            ngModel
-            required
-            #claimAmount="ngModel"
+            [(ngModel)]="policyDescription"
           />
         </div>
         <div class="col-xs-6 col-md-6 row__content">
-          <label for="claimAmount">Claimed Amount</label>
+          <label for="claimDescription">Claim Description</label>
           <input
-            type="number"
+            type="text"
             class="form-control"
-            placeholder="Enter claimed amount"
-            name="claimAmount"
+            placeholder="Enter claim description"
+            name="claimDescription"
             ngModel
             required
-            #claimAmount="ngModel"
+            [(ngModel)]="claimDescription"
           />
+        </div>
+      </div><br>
+      <div>
+        <div class="form-group row">
+          <div class="col-xs-6 col-md-6 row__content">
+            <label for="claimAmount">Claimed Amount</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Enter claimed amount"
+              name="claimAmount"
+              ngModel
+              required
+              [(ngModel)]="claimAmount"
+            />
+          </div>
         </div>
       </div>
       <div class="form-group row">
         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-          <button class="btn">Submit</button>
+          <button class="btn" (click)="addToDatabase()">Submit</button>
         </div>
       </div>
     </form>

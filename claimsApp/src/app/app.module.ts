@@ -19,6 +19,7 @@ import { ClaimsstatusComponent } from './claimsstatus/claimsstatus.component';
 import { AdminportalComponent } from './adminportal/adminportal.component';
 import { ProcessclaimComponent } from './processclaim/processclaim.component';
 import { FooterComponent } from './footer/footer.component';
+import {DatePipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { FooterComponent } from './footer/footer.component';
       useClass: AuthInterceptorService,
       multi: true,
     },
+    DatePipe
   ],
   bootstrap: [AppComponent],
 })
