@@ -2,7 +2,7 @@ export interface Policy{
   policyId:number
   policyName:string
   policyProvider:string
-  PolicyStartDate:string,
-  PolicyEndDate:string,
-  policyDescription:string
+  policyStartDate:string,
+  policyEndDate:string,
+  description:string
 }
