@@ -7,139 +7,24 @@
       <thead class="bg-light">
         <tr>
           <th>Claim Id</th>
-          <th>Claim submitted date</th>
-          <th>Claim settled date</th>
-          <th>Remarks</th>
+          <th>Description</th>
+          <th>Raised Date</th>
+          <th>Settled Date</th>
+          <th>Claim amount</th>
           <th>Status</th>
+          <th>Remarks</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <!-- claim id -->
-
-          <td>
-            <div class="d-flex align-items-center"></div>
-          </td>
-
-          <!-- claim submitted date column -->
-
-          <td>
-            <input
-              type="date"
-              class="fw-normal mb-1"
-              name="claimSubmittedDate"
-              ngModel
-              required
-              #policyStartDate="ngModel"
-            />
-          </td>
-
-          <!-- claim settled date column -->
-
-          <td>
-            <input
-              type="date"
-              class="fw-normal mb-1"
-              name="claimSettledDate"
-              ngModel
-              required
-              #policyStartDate="ngModel"
-            />
-          </td>
-
-          <!-- Remarks column -->
-
-          <td></td>
-          <td>
-            <span class="badge badge-success rounded-pill d-inline"
-              >Success</span
-            >
-          </td>
-        </tr>
-        <tr>
-          <!-- claim id -->
-
-          <td>
-            <div class="d-flex align-items-center"></div>
-          </td>
-
-          <!-- claim submitted date column -->
-
-          <td>
-            <input
-              type="date"
-              class="fw-normal mb-1"
-              name="claimSubmittedDate"
-              ngModel
-              required
-              #policyStartDate="ngModel"
-            />
-          </td>
-
-          <!-- claim settled date column -->
-
-          <td>
-            <input
-              type="date"
-              class="fw-normal mb-1"
-              name="claimSettledDate"
-              ngModel
-              required
-              #policyStartDate="ngModel"
-            />
-          </td>
-
-          <!-- Remarks column -->
-
-          <td></td>
-          <td>
-            <span class="badge badge-success rounded-pill d-inline"
-              >Success</span
-            >
-          </td>
-        </tr>
-        <tr>
-          <!-- claim id -->
-
-          <td>
-            <div class="d-flex align-items-center"></div>
-          </td>
-
-          <!-- claim submitted date column -->
-
-          <td>
-            <input
-              type="date"
-              class="fw-normal mb-1"
-              name="claimSubmittedDate"
-              ngModel
-              required
-              #policyStartDate="ngModel"
-            />
-          </td>
-
-          <!-- claim settled date column -->
-
-          <td>
-            <input
-              type="date"
-              class="fw-normal mb-1"
-              name="claimSettledDate"
-              ngModel
-              required
-              #policyStartDate="ngModel"
-            />
-          </td>
-
-          <!-- Remarks column -->
-
-          <td></td>
-          <td>
-            <span class="badge badge-warning rounded-pill d-inline"
-              >Rejected</span
-            >
-          </td>
-        </tr>
+      <tr *ngFor="let claim of claims">
+        <td>{{claim.claimId}}</td>
+        <td>{{claim.description}}</td>
+        <td>{{claim.claimRaisedDate}}</td>
+        <td>{{claim.claimSettledDate}}</td>
+        <td>{{claim.claimAmount}}</td>
+        <td>{{claim.claimStatus}}</td>
+        <td>{{claim.remarks}}</td>
+      </tr>
       </tbody>
     </table>
   </div>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
+import {TokenStorageService} from "../_services/token-storage.service";
+import {DataService} from "../_services/data-service.service";
+import {Claim} from "../models/Claim";
 
 @Component({
   selector: 'app-viewclaim',
@@ -8,12 +11,26 @@ import {Router} from '@angular/router'
 })
 export class ViewclaimComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  claims:Claim[]=[]
+
+  constructor(private router: Router,
+              private tokenStorageService:TokenStorageService,
+              private dataService:DataService) { }
 
   ngOnInit(): void {
-  }
-  onUpdate(){
-    this.router.navigateByUrl('processclaim');
+    let token=this.tokenStorageService.getToken()
+    if (token != null) {
+      this.dataService.getAllPendingClaims()
+        .subscribe(response=>{
+          console.log(response.body)
+          // @ts-ignore
+          this.claims=response.body
+        })
+    }
+
   }
 
+  processClaim(claimId: number) {
+    this.router.navigateByUrl(`processclaim/${claimId}`)
+  }
 }

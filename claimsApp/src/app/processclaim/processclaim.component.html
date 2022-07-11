@@ -10,26 +10,14 @@
           <div class="card-body">
             <div class="row align-items-center pt-4 pb-1">
               <div class="col-md-3 ps-5">
-                <h6 class="mb-0">Member ID</h6>
+                <h6 class="mb-0">Claim ID</h6>
               </div>
               <div class="col-md-9 pe-5">
                 <input
                   type="text"
                   class="form-control form-control-lg"
                   disabled
-                />
-              </div>
-            </div>
-
-            <div class="row align-items-center pt-4 pb-3">
-              <div class="col-md-3 ps-5">
-                <h6 class="mb-0">Full name</h6>
-              </div>
-              <div class="col-md-9 pe-5">
-                <input
-                  type="text"
-                  class="form-control form-control-lg"
-                  disabled
+                  value="{{claimId}}"
                 />
               </div>
             </div>
@@ -38,48 +26,10 @@
 
             <div class="row align-items-center pt-4 pb-1">
               <div class="col-md-3 ps-5">
-                <h6 class="mb-0">Insurance Amount</h6>
+                <h6 class="mb-0">Remarks</h6>
               </div>
               <div class="col-md-9 pe-5">
-                <input type="number" class="form-control form-control-lg" />
-              </div>
-            </div>
-
-            <hr class="mx-n3" />
-
-            <div class="row align-items-center py-2">
-              <div class="col-md-3 ps-5">
-                <h6 class="mb-0">Request Date</h6>
-              </div>
-              <div class="col-md-9 pe-5">
-                <input type="date" class="form-control form-control-lg" />
-              </div>
-            </div>
-
-            <hr class="mx-n3" />
-
-            <div class="row align-items-center pt-2 pb-1">
-              <div class="col-md-3 ps-5">
-                <h6 class="mb-0">Reason</h6>
-              </div>
-              <div class="col-md-9 pe-5">
-                <input
-                  type="text"
-                  class="form-control form-control-lg"
-                  placeholder="Reason for Approval/Rejection"
-                />
-              </div>
-            </div>
-            <div class="row align-items-center py-3">
-              <div class="col-md-3 ps-5">
-                <h6 class="mb-0">Decision</h6>
-              </div>
-              <div class="col-md-9 pe-5">
-                <select class="select">
-                  <option value="1">Approve/Reject</option>
-                  <option value="2">Approved</option>
-                  <option value="3">Reject</option>
-                </select>
+                <input type="text" class="form-control form-control-lg" [formControl]="remarks"/>
               </div>
             </div>
 
@@ -88,11 +38,16 @@
             <div class="px-5 py-1">
               <button
                 type="submit"
-                class="btn btn-primary btn-lg"
+                class="btn btn-success btn-lg"
+                style="border-radius: 100px;margin-left: 30% !important;"
+                (click)="processClaim('Approved')"
+              >Approve</button>
+                <button
+                type="submit"
+                class="btn btn-danger btn-lg"
                 style="border-radius: 100px"
-              >
-                Submit
-              </button>
+                (click)="processClaim('Denied')"
+              >Deny</button>
             </div>
           </div>
         </div>
