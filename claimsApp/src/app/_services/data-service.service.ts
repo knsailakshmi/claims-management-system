@@ -31,4 +31,16 @@ export class DataService {
       observe: "response"
     })
   }
+  getClaimById(claimId:number){
+    let url=`http://localhost:8000/claim/${claimId}`
+    return this.http.get(url,{
+      observe:"response"
+    })
+  }
+  updateClaim(claimId:number,request:ClaimRequest){
+    let url=`http://localhost:8000/claim/${claimId}`
+    return this.http.put(url,request,{
+      observe:"response"
+    })
+  }
 }
