@@ -3,10 +3,11 @@ import {Policy} from "./Policy";
 export  interface Claim{
   claimId:number
   description:string
-  claimRaisedDate:Date
-  claimSettledDate:Date|null
+  claimRaisedDate:string
+  claimSettledDate:string|null
   claimAmount:number
   claimStatus:string
   remarks:string
   policy:Policy
+  memberId:number
 }
