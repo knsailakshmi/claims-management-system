@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 
 const AUTH_API = 'http://localhost:8080/api/auth/';
 
@@ -13,6 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
+  payload:any;
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<any> {
@@ -35,5 +37,26 @@ export class AuthService {
   }
   getUser(id:string):Observable<any>{
     return this.http.get(AUTH_API+id);
+  }
+  updateUser(form1:FormGroup,form2:FormGroup,id:string):Observable<any>{
+
+    if(form1?.value.password!=""){
+      this.payload={
+        name:form1?.value.name,
+        email:form1?.value.email,
+        phoneNo:form2?.value.mobileNo,
+        address:form2?.value.address,
+        password:form1?.value.password,
+      }
+    }else{
+      this.payload={
+        name:form1?.value.name,
+        email:form1?.value.email,
+        phoneNo:form2?.value.mobileNo,
+        address:form2?.value.address,
+       
+      }
+    }
+     return this.http.post(AUTH_API+id,this.payload)
   }
 }
