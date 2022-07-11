@@ -10,10 +10,7 @@ import {SignupComponent} from './signup/signup.component';
 import {SubmitclaimComponent} from './submitclaim/submitclaim.component';
 import {UpdatememComponent} from './updatemem/updatemem.component';
 import {ViewclaimComponent} from './viewclaim/viewclaim.component';
-<<<<<<< HEAD
 import { ViewmemberComponent } from './viewmember/viewmember.component';
-=======
->>>>>>> 1f5f5ae57d9b99b0a0150a860c7f9349e2bf2edd
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -26,12 +23,8 @@ const routes: Routes = [
   {path: 'claimsstatus', component: ClaimsstatusComponent},
   {path: 'adminportal', component: AdminportalComponent},
   {path: 'processclaim/:claimId', component: ProcessclaimComponent},
-<<<<<<< HEAD
   {path: 'viewclaim', component: ViewclaimComponent},
   {path: 'viewmember', component:ViewmemberComponent}
-=======
-  {path: 'viewclaim', component: ViewclaimComponent}
->>>>>>> 1f5f5ae57d9b99b0a0150a860c7f9349e2bf2edd
 ];
 
 @NgModule({
