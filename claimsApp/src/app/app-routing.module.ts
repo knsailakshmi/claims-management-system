@@ -11,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SubmitclaimComponent } from './submitclaim/submitclaim.component';
 import { UpdatememComponent } from './updatemem/updatemem.component';
 import { ViewclaimComponent } from './viewclaim/viewclaim.component';
+import { ViewmemberComponent } from './viewmember/viewmember.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'claimsstatus', component: ClaimsstatusComponent},
   {path: 'adminportal', component: AdminportalComponent},
   {path: 'processclaim', component:ProcessclaimComponent},
-  {path: 'viewclaim', component:ViewclaimComponent}
+  {path: 'viewclaim', component:ViewclaimComponent},
+  {path: 'viewmember', component:ViewmemberComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
