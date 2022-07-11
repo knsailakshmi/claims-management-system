@@ -3,42 +3,39 @@
     <div class="row d-flex justify-content-center align-items-center h-20">
       <h1 style="text-align: center; color: white">View Claims</h1>
       <div class="col-12">
-        <div class="card card-registration card-registration-2" style="border-radius: 15px">
-          <div class="container mt-5 px-2">
-            <div class="mb-2 d-flex justify-content-between align-items-center">
-            </div>
-            <div class="table-responsive" style="width: 100%">
-              <table class="table table-responsive table-borderless">
-                <thead>
-                  <th>Claim id</th>
-                  <th>Claim description</th>
-                  <th>Claim raised date</th>
-                  <th>Policy id</th>
-                  <th>Policy Name</th>
-                  <th>Policy provider</th>
-                  <th>Policy Start date</th>
-                  <th>Policy end date</th>
-                  <th>Policy Description</th>
-                  <th>Process</th>
-                  <th></th>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let claim of claims">
-                    <td>{{claim.claimId}}</td>
-                    <td>{{claim.description}}</td>
-                    <td>{{claim.claimRaisedDate}}</td>
-                    <td>{{claim.policy.policyId}}</td>
-                    <td>{{claim.policy.policyName}}</td>
-                    <td>{{claim.policy.policyProvider}}</td>
-                    <td>{{claim.policy.PolicyStartDate}}</td>
-                    <td>{{claim.policy.PolicyEndDate}}</td>
-                    <td>{{claim.policy.policyDescription}}</td>
-                    <td><button class="btn btn-primary" (click)="onUpdate(claim.claimId)">Update</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+        <div class="table-responsive">
+          <table class="table table-responsive table-striped">
+            <thead class="thead-dark">
+            <th scope="col">Claim id</th>
+            <th scope="col">Claim description</th>
+            <th scope="col">Claim raised date</th>
+            <th scope="col">Claim Amount</th>
+            <th scope="col">Policy id</th>
+            <th scope="col">Policy Name</th>
+            <th scope="col">Policy provider</th>
+            <th scope="col">Policy Start date</th>
+            <th scope="col">Policy end date</th>
+            <th scope="col">Policy Description</th>
+            <th scope="col">Process</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let claim of claims">
+              <td>{{claim.claimId}}</td>
+              <td>{{claim.description}}</td>
+              <td>{{claim.claimRaisedDate}}</td>
+              <td>{{claim.claimAmount}}</td>
+              <td>{{claim.policy.policyId}}</td>
+              <td>{{claim.policy.policyName}}</td>
+              <td>{{claim.policy.policyProvider}}</td>
+              <td>{{claim.policy.policyStartDate}}</td>
+              <td>{{claim.policy.policyEndDate}}</td>
+              <td>{{claim.policy.description}}</td>
+              <td>
+                <button class="btn btn-primary" (click)="processClaim(claim.claimId)">Update</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
