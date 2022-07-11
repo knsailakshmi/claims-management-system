@@ -31,4 +31,9 @@ export class MemberportalComponent implements OnInit {
     this.router.navigateByUrl('claimsstatus');
   }
 
+  onUpdateClick(){
+    //navigate to submit claim page
+    this.router.navigateByUrl('updatemem');
+  }
+
 }
