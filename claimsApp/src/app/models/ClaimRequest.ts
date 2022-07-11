@@ -3,12 +3,12 @@ export interface ClaimRequest{
   policyId:number;
   policyName:string;
   policyProvider:string;
-  policyStartDate:Date;
-  policyEndDate:Date;
+  policyStartDate:string|null;
+  policyEndDate:string|null;
   policyDescription:string;
   claimDescription:string;
   claimRaisedDate:string|null;
-  claimSettledDate:string;
+  claimSettledDate:string|null;
   claimAmount:number;
   claimStatus:string;
   remarks:string|null;

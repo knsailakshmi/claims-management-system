@@ -1,120 +1,99 @@
 <div class="back">
   <div class="container">
-    <form>
-      <div class="heading">
-        <h2 class="heading--highlight highlight">Submit Claim</h2>
+    <div class="heading">
+      <h2 class="heading--highlight highlight">Submit Claim</h2>
+    </div>
+    <form (submit)="addToDatabase()">
+      <div class="form-group">
+        <label for="policyId">Policy Id</label>
+        <input type="number"
+               placeholder="Enter policy id here"
+               [formControl]="policyId"
+               id="policyId"
+               class="form-control">
+        <small *ngIf="policyId.touched && policyId.errors?.['required']">
+          Policy Id is required
+        </small>
       </div>
-      <div class="from-group row">
-        <div class="col-xs-6 col-md-6 row__content">
-          <label for="policyID">Policy Id</label>
-          <input
-            type="number"
-            class="form-control"
-            name="policyId"
-            placeholder="Enter policy id"
-            ngModel
-            required
-            [(ngModel)]="request.policyId"
-          />
-        </div>
-
-        <div class="col-xs-6 col-md-6 row__content">
-          <label for="policyName">Policy Name</label>
-          <input
-            type="text"
-            class="form-control"
-            name="policyName"
-            placeholder="Enter policy name"
-            ngModel
-            required
-            [(ngModel)]="request.policyName"
-          />
-        </div>
+      <div class="form-group">
+        <label for="policyName">Policy Name</label>
+        <input type="text"
+               placeholder="Enter policy Name"
+               [formControl]="policyName"
+               id="policyName" class="form-control">
+        <small *ngIf="policyName.touched && (policyName.errors?.['required'] || policyName.errors?.['whitespace'])">
+          Policy Name is required
+        </small>
       </div>
-
-      <div class="form-group row">
-        <div class="col-xs-6 col-md-6 row__content">
-          <label for="policyProvider">Policy Provider</label>
-          <input
-            type="text"
-            class="form-control"
-            name="policyProvider"
-            placeholder="Enter policy name"
-            ngModel
-            required
-            [(ngModel)]="request.policyProvider"
-          />
-        </div>
-
-        <div class="col-xs-6 col-md-6 row__content">
-          <label for="policyStartDate">Policy start date</label>
-          <input
-            type="date"
-            class="form-control"
-            name="policyStartDate"
-            ngModel
-            required
-            [(ngModel)]="request.policyStartDate"
-          />
-        </div>
+      <div class="form-group">
+        <label for="policyProvider">Policy Provider</label>
+        <input type="text"
+               placeholder="Enter policy provider"
+               [formControl]="policyProvider"
+               id="policyProvider"
+               class="form-control">
+        <small *ngIf="policyProvider.touched && (policyProvider.errors?.['required'] || policyProvider.errors?.['whitespace'])">
+          Policy Provider is required
+        </small>
       </div>
-
-      <div class="form-group row">
-        <div class="col-xs-6 col-md-6 row__content">
-          <label for="policyEndDate">Policy end date</label>
-          <input
-            type="date"
-            class="form-control"
-            name="policyEndDate"
-            ngModel
-            required
-            [(ngModel)]="request.policyEndDate"
-          />
+      <div class="row">
+        <div class="col">
+          <label for="policyStartDate">Policy Start date</label>
+          <input type="date"
+                 [formControl]="policyStartDate"
+                 id="policyStartDate" class="form-control">
+          <small *ngIf="policyStartDate.touched && (policyStartDate.errors?.['required'] || policyStartDate.errors?.['invalidDate'])">
+            Policy Start date is required and should not be greater than today
+          </small>
         </div>
-        <div class="col-xs-6 col-md-6 row__content">
-          <label for="description">Policy Description</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Enter description"
-            name="description"
-            ngModel
-            required
-            [(ngModel)]="request.policyDescription"
-          />
+        <div class="col">
+          <label for="policyEndDate">Policy End Date</label>
+          <input type="date"
+                 [formControl]="policyEndDate"
+                 id="policyEndDate"
+                 class="form-control">
+          <small *ngIf="policyStartDate.touched && (policyStartDate.errors?.['required'] || policyStartDate.errors?.['invalidDate'])">
+            Policy End date is required and should not be less than today
+          </small>
         </div>
       </div>
-      <div class="form-group row">
-        <div class="col-xs-6 col-md-6 row__content">
-          <label for="claimDescription">Claim Description</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Enter claim description"
-            name="claimDescription"
-            ngModel
-            required
-            [(ngModel)]="request.claimDescription"
-          />
-        </div>
-          <div class="col-xs-6 col-md-6 row__content">
-            <label for="claimAmount">Claimed Amount</label>
-            <input
-              type="number"
-              class="form-control"
-              placeholder="Enter claimed amount"
-              name="claimAmount"
-              ngModel
-              required
-              [(ngModel)]="request.claimAmount"
-            />
-          </div>
+      <div class="form-group">
+        <label for="policyDescription">Policy Description</label>
+        <input type="text"
+               [formControl]="policyDescription"
+               placeholder="Enter policy description"
+               id="policyDescription"
+               class="form-control">
+        <small *ngIf="policyDescription.touched && (policyDescription.errors?.['required'] || policyDescription.errors?.['whitespace'])">
+          Policy Description is required
+        </small>
       </div>
-      <div class="form-group row">
-        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-          <button class="btn" (click)="addToDatabase()">Submit</button>
-        </div>
+      <div class="form-group">
+        <label for="claimDescription">Claim Description</label>
+        <input type="text"
+               [formControl]="claimDescription"
+               id="claimDescription"
+               placeholder="Enter claim description"
+               class="form-control">
+        <small *ngIf="claimDescription.touched && (claimDescription.errors?.['required'] || claimDescription.errors?.['whitespace'])">
+          Claim description is required
+        </small>
       </div>
+      <div class="form-group">
+        <label for="claimAmount">Claim Amount</label>
+        <input type="number"
+               placeholder="Enter claim amount"
+               id="claimAmount"
+               [formControl]="claimAmount"
+               class="form-control">
+        <small *ngIf="claimAmount.touched && (claimAmount.errors?.['required']
+        || claimAmount.errors?.['invalidMinAmount'] || claimAmount.errors?.['invalidMaxAmount'])">
+          Policy Provider is required
+        </small>
+      </div>
+      <input type="submit" class="btn btn-success" id="submit-btn" value="Submit">
+      <input type="reset" class="btn btn-danger" id="reset-btn" value="Reset">
     </form>
   </div>
 </div>
+

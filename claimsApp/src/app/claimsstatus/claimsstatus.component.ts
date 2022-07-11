@@ -19,15 +19,16 @@ export class ClaimsstatusComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.tokenStorageService.getToken() !== null) {
-      this.dataService.getClaimsByMember(this.tokenStorageService.getToken(),
-        this.tokenStorageService.getUser().userid).subscribe(response => {
+    let token=this.tokenStorageService.getToken()
+    let user=this.tokenStorageService.getUser()
+    console.log(user)
+    if (token != null) {
+      this.dataService.getClaimsByMember(user.userid).subscribe(response => {
         console.log(response)
         // @ts-ignore
         this.claims = response.body
       })
     }
-
   }
 
 }

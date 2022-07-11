@@ -1,5 +1,7 @@
+import { HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ConfirmedValidator } from '../_helper/confiremed.validator';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
@@ -13,7 +15,7 @@ export class UpdatememComponent implements OnInit {
   public form: FormGroup=new FormGroup({});
   passwordError:boolean=false;
 
-  constructor(private authService:AuthService,private tokenStorage:TokenStorageService,private fb: FormBuilder) {
+  constructor(private router:Router,private authService:AuthService,private tokenStorage:TokenStorageService,private fb: FormBuilder) {
     const user=this.tokenStorage.getUser()
     const userId=user.userid
 
@@ -59,17 +61,27 @@ export class UpdatememComponent implements OnInit {
      if(firstForm?.value.password!==secondForm?.value.confirmPassword){
       this.passwordError=true;
       console.log("inside the sumit");
-      
       return 
      }else{
       this.passwordError=false
      }
      this.authService.updateUser(firstForm,secondForm,userid).subscribe(
       (data)=>{
-        console.log("inside the data");
-        console.log(data);
+        console.log(data)
+        alert("updated you profile successfully")
+        let user=this.tokenStorage.getUser();
+        user.name=data.name;        
+        this.tokenStorage.saveUser(user);
+        this.router.navigateByUrl('home')
+
+
+         
         
         
+        
+      },(error)=>{
+        alert("something went wrong")
+       
       }
      )
      

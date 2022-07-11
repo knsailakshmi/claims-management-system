@@ -50,3 +50,16 @@ input.ng-invalid.ng-touched {
 .btn[disabled] {
  cursor: not-allowed;
 }
+
+small{
+  color: red;
+}
+
+#submit-btn{
+  background-color: green;
+  margin-left: 30% !important;
+}
+
+#reset-btn{
+  background-color: red;
+}
