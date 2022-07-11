@@ -22,14 +22,15 @@ export class ViewclaimComponent implements OnInit {
     if (token != null) {
       this.dataService.getAllPendingClaims()
         .subscribe(response=>{
+          console.log(response.body)
           // @ts-ignore
           this.claims=response.body
         })
     }
 
   }
-  onUpdate(claimId:number){
-    this.router.navigateByUrl('processclaim');
-  }
 
+  processClaim(claimId: number) {
+    this.router.navigateByUrl(`processclaim/${claimId}`)
+  }
 }
