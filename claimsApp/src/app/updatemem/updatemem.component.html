@@ -7,8 +7,10 @@
           style="border-radius: 15px"
         >
           <div class="card-body p-0">
+            <ng-container [formGroup]="form">
             <div class="row g-0">
               <div class="col-lg-6">
+                <ng-container formGroupName="form1">
                 <div class="p-5">
                   <h3 class="fw-normal mb-5" style="color: #4835d4">
                     Update Member
@@ -23,9 +25,19 @@
                         type="text"
                         id="form3Examplev4"
                         class="form-control form-control-lg"
+                        name="name"
+                        formControlName="name"
                       />
                     </div>
                   </div>
+                  <span
+                    *ngIf="f1.name.touched && f1.name.invalid"
+                    style="color: red"
+                  >
+                    <span *ngIf="f1.name.errors?.required">
+                      Name is required.
+                    </span>
+                  </span>
 
                   <div class="mb-4 pb-2">
                     <div class="form-outline">
@@ -36,9 +48,20 @@
                         type="email"
                         id="form3Examplev4"
                         class="form-control form-control-lg"
+                        name="email"
+                        formControlName="email"
                       />
                     </div>
                   </div>
+                  <span
+                    *ngIf="f1.email.touched && f1.email.invalid"
+                    style="color: red"
+                  >
+                    <span *ngIf="f1.email.errors?.required">
+                      Email is required.
+                    </span>
+                  </span>
+                  
 
                   <div class="mb-4 pb-2">
                     <div class="form-outline">
@@ -49,12 +72,16 @@
                         type="password"
                         id="form3Examplev4"
                         class="form-control form-control-lg"
+                        name="password"
+                        formControlName="password"
                       />
                     </div>
                   </div>
                 </div>
+              </ng-container>
               </div>
               <div class="col-lg-6 bg-indigo text-white">
+                <ng-container formGroupName="form2">
                 <div class="p-5">
                   <div class="mb-4 pb-2">
                     <div class="form-outline">
@@ -65,9 +92,19 @@
                         type="password"
                         id="form3Examplev4"
                         class="form-control form-control-lg"
+                        name="confirmPassword"
+                        formControlName="confirmPassword"
                       />
                     </div>
                   </div>
+                  <span
+                    *ngIf="passwordError"
+                    style="color: red"
+                  >
+                    <span *ngIf="passwordError">
+                      Password and Confirm Password must be match.
+                    </span>
+                  </span>
                   <div class="mb-4 pb-2">
                     <div class="form-outline form-white">
                       <label class="form-label" for="form3Examplea3"
@@ -77,9 +114,19 @@
                         type="text"
                         id="form3Examplea3"
                         class="form-control form-control-lg"
+                        name="address"
+                        formControlName="address"
                       />
                     </div>
                   </div>
+                  <span
+                    *ngIf="f2.address.touched && f2.address.invalid"
+                    style="color: red"
+                  >
+                    <span *ngIf="f2.address.errors?.required">
+                      Address is required.
+                    </span>
+                  </span>
 
                   <div class="mb-4 pb-2">
                     <div class="form-outline form-white">
@@ -90,20 +137,36 @@
                         type="text"
                         id="form3Examplea6"
                         class="form-control form-control-lg"
+                        name="mobileNo"
+                        formControlName="mobileNo"
                       />
+                      
                     </div>
                   </div>
+                  <span
+                  *ngIf="f2.mobileNo.touched && f2.mobileNo.invalid"
+                  style="color: red"
+                >
+                  <span *ngIf="f2.mobileNo.errors?.required">
+                    Address is required.
+                  </span>
+                </span>
 
                   <button
                     type="button"
                     class="btn btn-light btn-lg"
                     data-mdb-ripple-color="dark"
+                    [disabled]="!form.valid && passwordError"
+                    (click)="onSubmit()"
                   >
                     Update
                   </button>
+                  
                 </div>
+                </ng-container>
               </div>
             </div>
+            </ng-container>
           </div>
         </div>
       </div>
