@@ -21,12 +21,16 @@ export function ConfirmedValidator(controlName: string, matchingControlName: str
 // checking entered date is greater than equal to today
 export function dateGreaterThanEqualToToday(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null =>
-    dateDiff(new Date(control.value),new Date()) < 0 ? {invalidDate:control.value} : null
+    dateDiff(new Date(control.value),new Date()) < 0 ||
+    dateDiff(new Date(control.value),new Date("2030-01-01")) > 0
+      ? {invalidDate:control.value} : null
 }
 // checking entered date is less than equal to today
 export function dateLessThanEqualToToday(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null =>
-    dateDiff(new Date(control.value),new Date()) > 0 ? {invalidDate:control.value} : null
+    dateDiff(new Date(control.value),new Date()) > 0 ||
+    dateDiff(new Date(control.value),new Date("2010-01-01")) < 0
+      ? {invalidDate:control.value} : null
 }
 // A validator to check input field is not blank in forms
 export function noWhitespaceValidator():ValidatorFn{

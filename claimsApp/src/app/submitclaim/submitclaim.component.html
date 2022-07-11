@@ -43,7 +43,7 @@
                  [formControl]="policyStartDate"
                  id="policyStartDate" class="form-control">
           <small *ngIf="policyStartDate.touched && (policyStartDate.errors?.['required'] || policyStartDate.errors?.['invalidDate'])">
-            Policy Start date is required and should not be greater than today
+            Policy Start date is required and should not be greater than 2010-01-01 and should be less than today
           </small>
         </div>
         <div class="col">
@@ -52,8 +52,8 @@
                  [formControl]="policyEndDate"
                  id="policyEndDate"
                  class="form-control">
-          <small *ngIf="policyStartDate.touched && (policyStartDate.errors?.['required'] || policyStartDate.errors?.['invalidDate'])">
-            Policy End date is required and should not be less than today
+          <small *ngIf="policyEndDate.touched && (policyEndDate.errors?.['required'] || policyEndDate.errors?.['invalidDate'])">
+            Policy End date is required and should not be greater tha 2030-01-01 and should be greater than today
           </small>
         </div>
       </div>
