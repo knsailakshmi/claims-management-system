@@ -30,11 +30,14 @@ export class TokenStorageService {
   }
   public getUser():any{
     // const user=window.sessionStorage.getItem(USER_KEY);
-    const user=window.localStorage.getItem(USER_KEY);
+    const user=window.localStorage.getItem(USER_KEY)
     if(user){
       return JSON.parse(user)
     }
     return {};
+  }
+  public updateUser():any{
+        
   }
 
   public tokenExpired(token: string):boolean {

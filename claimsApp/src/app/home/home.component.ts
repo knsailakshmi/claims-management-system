@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   token:string|null=null;
   user:any='';
   roles:string='';
-  constructor(private tokenStorage:TokenStorageService,private router:Router,private userService:UserService){
+  constructor(private tokenStorage:TokenStorageService,private router:Router){
      
   }
   ngOnInit():void{
@@ -20,18 +20,22 @@ export class HomeComponent implements OnInit {
       
       this.user=this.tokenStorage.getUser();
       console.log(this.user);
+      console.log("After the log out button");
+      
       
       this.roles=this.user.roles[0]
         
         if (this.token && this.roles=='ROLE_USER'){
-          this.userService.changeLoginStatus(true)
+          console.log("inside the log out member portal");
+          
         this.router.navigate(['./memberportal']);
       }
       // else if (this.token && this.roles=='ROLE_ADMIN') {
       //   this.router.navigate(['./adminportal']);
       // }
-      else{
-        this.userService.changeLoginStatus(true)
+      else if(this.token && this.roles=='ROLE_ADMIN'){
+        console.log("inside the adminportal");
+        
         this.router.navigate(['./adminportal']);
       }
     
