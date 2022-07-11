@@ -18,10 +18,7 @@ import { ThisReceiver } from '@angular/compiler';
 })
 export class AuthComponent implements OnInit, OnDestroy {
   form: FormGroup = new FormGroup({});
-  // form: any = {
-  //   username: null,
-  //   password: null
-  // };
+ 
   isLoggedIn:boolean=false
   isValidating: boolean = false;
   isLoading: boolean = false;
@@ -101,6 +98,7 @@ export class AuthComponent implements OnInit, OnDestroy {
         this.isLoggedIn=true
         this.error = null;
         this.userService.changeLoginStatus(true);
+        this.reloadPage();
         if(data.roles[0]=='ROLE_USER'){
         this.router.navigate(['./memberportal']);
         }else{
@@ -120,7 +118,9 @@ export class AuthComponent implements OnInit, OnDestroy {
     this.form.value.password=''
   }
 
-  
+  reloadPage(): void {
+    window.location.reload();
+  }
 
   handleError() {
     this.error = null;
