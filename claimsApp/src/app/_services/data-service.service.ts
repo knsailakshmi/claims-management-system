@@ -1,40 +1,46 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 import {ClaimRequest} from "../models/ClaimRequest";
-import {DatePipe} from "@angular/common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  auth:string=""
-  httpHeaders=new HttpHeaders({
-    'Content-Type':'application/json',
-    'Cache-Control':'no-cache',
-    'Authorization':this.auth
-  })
-  constructor(private http:HttpClient,private datePipe:DatePipe) { }
+  constructor(private http: HttpClient) {
+  }
 
-  sendSubmitClaimRequest(auth:string,requestBody:ClaimRequest){
-    let url="http://localhost:8000/claim"
-    this.datePipe.transform(requestBody.policyStartDate,"yyyy-MM-dd")
-    this.datePipe.transform(requestBody.policyEndDate,"yyyy-MM-dd")
+  sendSubmitClaimRequest(requestBody: ClaimRequest) {
+    let url = "http://localhost:8000/claim"
     console.log(requestBody)
-    return this.http.post(url,requestBody,{
-      headers:this.httpHeaders,
-      observe:"response"
+    return this.http.post(url, requestBody, {
+      observe: "response"
     })
   }
 
-  getClaimsByMember(auth: string | null, userId: string){
-    let url=`http://localhost:8000/claim/user/${userId}/view`
-    if (auth != null) {
-      this.auth = auth
-    }
+  getClaimsByMember(userId: string) {
+    let url = `http://localhost:8000/claim/user/${userId}/view`
+    return this.http.get(url, {
+      observe: "response",
+    })
+  }
+
+  getAllPendingClaims() {
+    let url = "http://localhost:8000/claim/pending"
+    return this.http.get(url, {
+      observe: "response"
+    })
+  }
+  getClaimById(claimId:number){
+    let url=`http://localhost:8000/claim/${claimId}`
     return this.http.get(url,{
-      headers:this.httpHeaders,
-      observe:"response",
+      observe:"response"
+    })
+  }
+  updateClaim(claimId:number,request:ClaimRequest){
+    let url=`http://localhost:8000/claim/${claimId}`
+    return this.http.put(url,request,{
+      observe:"response"
     })
   }
 }

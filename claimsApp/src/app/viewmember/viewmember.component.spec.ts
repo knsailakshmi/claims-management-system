@@ -23,3 +23,4 @@ describe('ViewmemberComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+/***/
