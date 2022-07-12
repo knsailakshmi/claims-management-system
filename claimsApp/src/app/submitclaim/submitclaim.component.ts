@@ -10,6 +10,7 @@ import {
   dateLessThanEqualToToday, maxClaimAmountValidator, minClaimAmountValidator,
   noWhitespaceValidator
 } from "../_helper/confiremed.validator";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-submitclaim',
@@ -47,7 +48,8 @@ export class SubmitclaimComponent implements OnInit {
   constructor(private httpClient: HttpClient,
               private dataService: DataService,
               private tokenStorageService: TokenStorageService,
-              private datePipe:DatePipe) {
+              private datePipe:DatePipe,
+              private router:Router) {
   }
 
   ngOnInit(): void {
@@ -73,8 +75,12 @@ export class SubmitclaimComponent implements OnInit {
         remarks: null,
       }
       this.dataService.sendSubmitClaimRequest(request).subscribe(response => {
-        let message = response.status === HttpStatusCode.Created ? "Claim Added successfully" : "Something went wrong"
-        alert(message)
+        if(response.status===HttpStatusCode.Created){
+          this.router.navigateByUrl('successful')
+        }
+        else{
+          this.router.navigateByUrl('unsuccessful')
+        }
       })
     }
   }

@@ -1,6 +1,6 @@
 export class Member{
-  memberId?:number;
-  memberName?:string;
+  userId?:number;
+  name?:string;
   email?:string;
   phoneNo?:number;
   address?:string;
