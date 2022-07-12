@@ -1,7 +1,7 @@
 export class Member{
-  memberId:number;
-  memberName:string;
-  email:string;
-  phoneNo:number;
-  address:string;
+  userId?:number;
+  name?:string;
+  email?:string;
+  phoneNo?:number;
+  address?:string;
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { observable, Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 
 const AUTH_API = 'http://localhost:8080/api/auth/';
@@ -59,4 +59,10 @@ export class AuthService {
     }
      return this.http.post(AUTH_API+id,this.payload)
   }
+
+  getAllUser():Observable<any>{
+    return this.http.get(AUTH_API+"all-user");
+
+  }
 }
+

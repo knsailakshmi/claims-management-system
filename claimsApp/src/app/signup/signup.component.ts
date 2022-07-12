@@ -65,6 +65,7 @@ export class SignupComponent implements OnInit {
         console.log(data);
         
         this.isLoggedIn=true
+        window.location.reload();
         this.error = null;
         this.router.navigate(['./memberportal']);
         

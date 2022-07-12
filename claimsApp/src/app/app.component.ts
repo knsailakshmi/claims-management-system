@@ -9,6 +9,9 @@ import { TokenStorageService } from "./_services/token-storage.service";
 })
 export class AppComponent implements OnInit {
   error: string | null = null;
+  isLoggedIn = false;
+  username?: string;
+  private roles: string[] = [];
 
   // constructor(private authService: AuthService) {}
   constructor(private tokenStorage:TokenStorageService,private router:Router){}
@@ -30,11 +33,13 @@ export class AppComponent implements OnInit {
       }
     }
     
-    
-    
   }
 
   handleError() {
     this.error = null;
+  }
+  onLogout(): void {
+    this.tokenStorage.signOut();
+    window.location.reload();
   }
 }
