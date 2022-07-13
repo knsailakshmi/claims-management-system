@@ -11,20 +11,21 @@ import {SubmitclaimComponent} from './submitclaim/submitclaim.component';
 import {UpdatememComponent} from './updatemem/updatemem.component';
 import {ViewclaimComponent} from './viewclaim/viewclaim.component';
 import { ViewmemberComponent } from './viewmember/viewmember.component';
+import { AuthGuard } from './_guard/auth.guard';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'home', component: HomeComponent},
   {path: 'auth', component: AuthComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'memberportal', component: MemberportalComponent},
-  {path: 'submitclaim', component: SubmitclaimComponent},
-  {path: 'updatemem', component: UpdatememComponent},
-  {path: 'claimsstatus', component: ClaimsstatusComponent},
-  {path: 'adminportal', component: AdminportalComponent},
-  {path: 'processclaim/:claimId', component: ProcessclaimComponent},
-  {path: 'viewclaim', component: ViewclaimComponent},
-  {path: 'viewmember', component:ViewmemberComponent}
+  {path: 'memberportal', component: MemberportalComponent,canActivate:[AuthGuard]},
+  {path: 'submitclaim', component: SubmitclaimComponent,canActivate:[AuthGuard]},
+  {path: 'updatemem', component: UpdatememComponent,canActivate:[AuthGuard]},
+  {path: 'claimsstatus', component: ClaimsstatusComponent,canActivate:[AuthGuard]},
+  {path: 'adminportal', component: AdminportalComponent,canActivate:[AuthGuard]},
+  {path: 'processclaim/:claimId', component: ProcessclaimComponent,canActivate:[AuthGuard]},
+  {path: 'viewclaim', component: ViewclaimComponent,canActivate:[AuthGuard]},
+  {path: 'viewmember', component:ViewmemberComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

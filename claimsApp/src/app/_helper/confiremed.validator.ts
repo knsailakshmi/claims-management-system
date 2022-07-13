@@ -61,3 +61,19 @@ export function dateDiff(date1: Date,date2: Date){
   return dateDifference;
 }
 
+export function  validateEmail (email:string)
+{
+  return (formGroup: FormGroup) => {
+    const control = formGroup.controls[email];
+    const regularExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    console.log("inside the validator "+regularExpression.test(String(control.value).toLowerCase()));
+    let booelan=regularExpression.test(String(control.value).toLowerCase())
+    if(booelan){
+      return control.setErrors({emailValid:true})
+    }else{
+      return control.setErrors({emailValid:false})
+    }
+  }
+   
+}
+
