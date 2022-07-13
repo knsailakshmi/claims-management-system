@@ -44,6 +44,7 @@ export class SubmitclaimComponent implements OnInit {
     Validators.required,
     minClaimAmountValidator(),
     maxClaimAmountValidator()])
+  error:boolean|null=null
 
   constructor(private httpClient: HttpClient,
               private dataService: DataService,
@@ -76,11 +77,19 @@ export class SubmitclaimComponent implements OnInit {
       }
       this.dataService.sendSubmitClaimRequest(request).subscribe(response => {
         if(response.status===HttpStatusCode.Created){
-          this.router.navigateByUrl('successful')
+          this.error=false;
+          setTimeout(()=>{
+            this.error=null
+            this.router.navigateByUrl('memberportal')
+            window.location.reload()
+          },2000)
         }
-        else{
-          this.router.navigateByUrl('unsuccessful')
-        }
+      },(error)=>{
+        this.error=true
+        setTimeout(
+          ()=>{
+            this.error=null
+          },3000)
       })
     }
   }

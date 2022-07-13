@@ -132,6 +132,12 @@
         value="Submit"
       />
       <input type="reset" class="btn btn-danger" id="reset-btn" value="Reset" />
+      <div class="alert alert-success" role="alert" *ngIf="error!=null && !error">
+        Submitted claim successfully
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="error!=null && error">
+        Invalid form. Your claim could not be submitted.
+      </div>
     </form>
   </div>
 </div>
