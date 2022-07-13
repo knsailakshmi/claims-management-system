@@ -20,6 +20,7 @@ export class ProcessclaimComponent implements OnInit {
     Validators.required
   ]);
   claim!:Claim
+  error:boolean|null=null;
 
   constructor(private route: ActivatedRoute,
               private dataService: DataService,
@@ -59,8 +60,10 @@ export class ProcessclaimComponent implements OnInit {
       console.log(`update request is \n${updateClaimRequest}`)
       this.dataService.updateClaim(this.claimId,updateClaimRequest)
         .subscribe(response=>{
-          let message=response.status===HttpStatusCode.Accepted?"claim updated successfully":"something went wrong"
-          alert(message)
+          this.error=true;
+          setTimeout(()=>{                           
+            this.error= null;
+        }, 2000);
           this.router.navigateByUrl('viewclaim')
         })
     }
