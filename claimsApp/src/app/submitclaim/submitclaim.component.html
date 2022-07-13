@@ -4,7 +4,7 @@
 <div class="alert alert-danger" role="alert" *ngIf="error!=null && error">
   Invalid form. Your claim could not be submitted.
 </div>
-<div class="back" style="background-color: #88d8f2; border-radius: 35px; height: 900px; width: 1200px; margin-left: 250px; margin-top: 35px; margin-bottom: 35px; ">
+<div class="back" style="background-color: #88d8f2; border-radius: 35px; height: 800px; width: 1200px; margin-left: 250px; margin-top: 35px; margin-bottom: 35px; ">
   <div class="container" style="margin-top: 5px;">
     <div class="heading" >
       <img
@@ -73,18 +73,19 @@
 
         <div class="col">
           <div class="form-group">
-            <label for="policyDescription">Policy Description</label>
+            <label for="claimAmount">Claim Amount</label>
             <input
-              type="text"
-              [formControl]="policyDescription"
-              placeholder="Enter policy description"
-              id="policyDescription"
+              type="number"
+              placeholder="Enter claim amount"
+              id="claimAmount"
+              [formControl]="claimAmount"
               class="form-control"
             />
             <small
-              *ngIf="policyDescription.touched && (policyDescription.errors?.['required'] || policyDescription.errors?.['whitespace'])"
+              *ngIf="claimAmount.touched && (claimAmount.errors?.['required']
+        || claimAmount.errors?.['invalidMinAmount'] || claimAmount.errors?.['invalidMaxAmount'])"
             >
-              Policy Description is required
+              Valid claim amount is required
             </small>
           </div>
         </div>
@@ -166,23 +167,6 @@
         </div>
       </div>
 
-
-      <div class="form-group">
-        <label for="claimAmount">Claim Amount</label>
-        <input
-          type="number"
-          placeholder="Enter claim amount"
-          id="claimAmount"
-          [formControl]="claimAmount"
-          class="form-control"
-        />
-        <small
-          *ngIf="claimAmount.touched && (claimAmount.errors?.['required']
-        || claimAmount.errors?.['invalidMinAmount'] || claimAmount.errors?.['invalidMaxAmount'])"
-        >
-          Valid claim amount is required
-        </small>
-      </div>
       <input
         type="submit"
         class="btn btn-success"
