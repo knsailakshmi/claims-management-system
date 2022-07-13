@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ConfirmedValidator } from '../_helper/confiremed.validator';
 import { AuthService } from '../_services/auth.service';
+
 import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
@@ -14,6 +15,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 export class UpdatememComponent implements OnInit {
   public form: FormGroup=new FormGroup({});
   passwordError:boolean=false;
+  error:boolean|null=null;
 
   constructor(private router:Router,private authService:AuthService,private tokenStorage:TokenStorageService,private fb: FormBuilder) {
     const user=this.tokenStorage.getUser()
@@ -46,7 +48,7 @@ export class UpdatememComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
+
   }
   onSubmit():void{
     const firstForm=this.form.get('form1') as FormGroup
@@ -68,11 +70,17 @@ export class UpdatememComponent implements OnInit {
      this.authService.updateUser(firstForm,secondForm,userid).subscribe(
       (data)=>{
         console.log(data)
-        alert("updated you profile successfully")
+
         let user=this.tokenStorage.getUser();
         user.name=data.name;        
         this.tokenStorage.saveUser(user);
-        this.router.navigateByUrl('home')
+        this.error=false;
+       
+        setTimeout(()=>{                           // <<<---using ()=> syntax
+          this.error= null;
+          this.router.navigateByUrl('home')
+          window.location.reload();
+      }, 2000);
 
 
          
@@ -80,13 +88,15 @@ export class UpdatememComponent implements OnInit {
         
         
       },(error)=>{
-        alert("something went wrong")
-       
+        this.error=true
+        setTimeout(()=>{                           // <<<---using ()=> syntax
+          this.error= null;
+      }, 3000);
       }
      )
      
       
-
+  
 
    
    

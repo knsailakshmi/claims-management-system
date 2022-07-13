@@ -18,10 +18,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isLogged:boolean=true;
   authSubscription: Subscription = new Subscription();
   constructor(private authService: AuthService,private tokenStorage:TokenStorageService,private router:Router,private userService:UserService) {
-    // this.user=this.tokenStorage.getUser()
-    // this.isLogged=this.userService.getLoginStatus();
-    // console.log("IS aUTHENTICATED "+this.isLogged);
-    // this.isAuthenticated=this.user.name?true:false
   }
 
   ngOnInit() {
@@ -34,14 +30,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.user=this.tokenStorage.getUser()
     this.isLogged=this.userService.getLoginStatus();
     console.log("IS aUTHENTICATED "+this.isLogged);
+  
     if(!this.isLogged){
       this.router.navigate(['./home']);
     }
     this.isAuthenticated=this.user.name?true:false
     
     // this.role=this.user.roles[0];
-   
-    
     this.username=this.user.name    
 
   }

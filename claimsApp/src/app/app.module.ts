@@ -20,11 +20,13 @@ import { AdminportalComponent } from './adminportal/adminportal.component';
 import { ProcessclaimComponent } from './processclaim/processclaim.component';
 import { FooterComponent } from './footer/footer.component';
 
+
 import { authInterceptorProviders } from './_helper/auth-interceptor.interceptor';
 
 import { ViewclaimComponent } from './viewclaim/viewclaim.component';
  import {DatePipe} from "@angular/common";
 import { ViewmemberComponent } from './viewmember/viewmember.component';
+import { AuthGuard } from './_guard/auth.guard';
 
 
 @NgModule({
@@ -46,8 +48,9 @@ import { ViewmemberComponent } from './viewmember/viewmember.component';
     ViewclaimComponent,
     ViewmemberComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,ReactiveFormsModule],
-  providers: [authInterceptorProviders,DatePipe],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,
+    ReactiveFormsModule],
+  providers: [authInterceptorProviders,DatePipe,AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
