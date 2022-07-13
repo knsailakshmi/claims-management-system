@@ -1,3 +1,9 @@
+<div class="alert alert-success" role="alert" *ngIf="error!=null && !error">
+  Submitted claim successfully
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="error!=null && error">
+  Invalid form. Your claim could not be submitted.
+</div>
 <div class="back" style="background-color: #88d8f2; border-radius: 35px; height: 900px; width: 1200px; margin-left: 250px; margin-top: 35px; margin-bottom: 35px; ">
   <div class="container" style="margin-top: 5px;">
     <div class="heading" >
@@ -44,7 +50,7 @@
           </div>
         </div>
       </div>
-      
+
 
       <div class="row">
         <div class="col">
@@ -83,8 +89,8 @@
           </div>
         </div>
       </div>
-      
-      
+
+
       <div class="row">
         <div class="col">
           <div class="form-group">
@@ -159,8 +165,8 @@
           </div>
         </div>
       </div>
-      
-      
+
+
       <div class="form-group">
         <label for="claimAmount">Claim Amount</label>
         <input
@@ -184,12 +190,6 @@
         value="Submit"
       />
       <input type="reset" class="btn btn-danger" id="reset-btn" value="Reset" />
-      <div class="alert alert-success" role="alert" *ngIf="error!=null && !error">
-        Submitted claim successfully
-      </div>
-      <div class="alert alert-danger" role="alert" *ngIf="error!=null && error">
-        Invalid form. Your claim could not be submitted.
-      </div>
     </form>
   </div>
 </div>
