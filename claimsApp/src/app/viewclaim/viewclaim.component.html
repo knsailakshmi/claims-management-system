@@ -1,20 +1,23 @@
-<section class="h-100 h-custom gradient-custom-2">
-  <div class="container-fluid py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-20">
-      <h1 style="text-align: center; color: white">View Claims</h1>
-      <div class="col-12">
-        <div class="table-responsive">
+<section class="px-5 py-4 " style="background-color: #c6e6f1; border-radius: 35px; height: 1500px; width: 1500px; margin-left: 80px; margin-top: 25px;" >
+  <div class="px-5 py-4 " >
+    <div class="row d-flex justify-content-center align-items-center h-20 ">
+      <img src="../../assets/img/medical-oversight-01.png"
+      class="img-fluid"
+      alt="Sample image" style="margin-top: 40px; height: 100px; margin-top: 10px; margin-left: 10px;"/>
+      <h1 style="text-align: center; color: rgb(5, 34, 42); "  ><b>View Claims</b></h1>
+      <div class="col-12" style="margin-top: 20px; width: 2000px;" >
+        <div class="table-responsive" >
           <table class="table table-responsive table-striped">
             <thead class="thead-dark">
-            <th scope="col">Claim id</th>
-            <th scope="col">Claim description</th>
-            <th scope="col">Claim raised date</th>
+            <th scope="col">Claim Id</th>
+            <th scope="col">Claim Description</th>
+            <th scope="col">Claim Raised Date</th>
             <th scope="col">Claim Amount</th>
-            <th scope="col">Policy id</th>
+            <th scope="col">Policy Id</th>
             <th scope="col">Policy Name</th>
-            <th scope="col">Policy provider</th>
-            <th scope="col">Policy Start date</th>
-            <th scope="col">Policy end date</th>
+            <th scope="col">Policy Provider</th>
+            <th scope="col">Policy Start Date</th>
+            <th scope="col">Policy End Date</th>
             <th scope="col">Policy Description</th>
             <th scope="col">Process</th>
             </thead>
@@ -31,7 +34,7 @@
               <td>{{claim.policy.policyEndDate}}</td>
               <td>{{claim.policy.description}}</td>
               <td>
-                <button class="btn btn-primary" (click)="processClaim(claim.claimId)">Update</button>
+                <button class="btn btn-primary" (click)="processClaim(claim.claimId)" style="background-color: rgb(39, 100, 117);">Update</button>
               </td>
             </tr>
             </tbody>
@@ -41,3 +44,4 @@
     </div>
   </div>
 </section>
+<app-footer></app-footer>

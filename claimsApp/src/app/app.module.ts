@@ -9,7 +9,6 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
-import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AlertComponent } from './shared/alert/alert.component';
 import { SignupComponent } from './signup/signup.component';
 import { MemberportalComponent } from './memberportal/memberportal.component';
@@ -29,6 +28,7 @@ import { ViewmemberComponent } from './viewmember/viewmember.component';
 import { AuthGuard } from './_guard/auth.guard';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +46,8 @@ import { AuthGuard } from './_guard/auth.guard';
     ProcessclaimComponent,
     FooterComponent,
     ViewclaimComponent,
-    ViewmemberComponent
+    ViewmemberComponent,
+    
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,
     ReactiveFormsModule],

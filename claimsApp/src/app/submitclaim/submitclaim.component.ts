@@ -44,8 +44,6 @@ export class SubmitclaimComponent implements OnInit {
     Validators.required,
     minClaimAmountValidator(),
     maxClaimAmountValidator()])
-  error:boolean|null=null
-
   constructor(private httpClient: HttpClient,
               private dataService: DataService,
               private tokenStorageService: TokenStorageService,
@@ -56,8 +54,10 @@ export class SubmitclaimComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.tokenStorageService.getUser())
   }
-
+ 
+  
   addToDatabase() {
+    
     let token=this.tokenStorageService.getToken()
     if (token != null) {
       let request: ClaimRequest = {
@@ -77,20 +77,18 @@ export class SubmitclaimComponent implements OnInit {
       }
       this.dataService.sendSubmitClaimRequest(request).subscribe(response => {
         if(response.status===HttpStatusCode.Created){
-          this.error=false;
-          setTimeout(()=>{
-            this.error=null
-            this.router.navigateByUrl('memberportal')
-            window.location.reload()
-          },2000)
+        
+  
         }
-      },(error)=>{
-        this.error=true
-        setTimeout(
-          ()=>{
-            this.error=null
-          },3000)
+        else{
+          
+        }
       })
     }
   }
 }
+
+
+
+
+

@@ -13,6 +13,7 @@ import {ViewclaimComponent} from './viewclaim/viewclaim.component';
 import { ViewmemberComponent } from './viewmember/viewmember.component';
 import { AuthGuard } from './_guard/auth.guard';
 
+
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'home', component: HomeComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'processclaim/:claimId', component: ProcessclaimComponent,canActivate:[AuthGuard]},
   {path: 'viewclaim', component: ViewclaimComponent,canActivate:[AuthGuard]},
   {path: 'viewmember', component:ViewmemberComponent,canActivate:[AuthGuard]}
+  
 ];
 
 @NgModule({

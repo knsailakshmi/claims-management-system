@@ -74,7 +74,10 @@ body {
 .demo {
  border-radius: 100px;
 }
-
+.demo1{
+    display: flex;
+    justify-content: center;
+}
 ::placeholder {
  color: white;
  opacity: 1;
