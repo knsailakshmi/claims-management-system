@@ -63,8 +63,9 @@ export class ProcessclaimComponent implements OnInit {
           this.error=true;
           setTimeout(()=>{                           
             this.error= null;
+            this.router.navigateByUrl('viewclaim')
         }, 2000);
-          this.router.navigateByUrl('viewclaim')
+          
         })
     }
   }
