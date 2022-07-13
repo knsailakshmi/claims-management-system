@@ -1,4 +1,4 @@
-<section class="h-100 h-custom gradient-custom-2">
+<section class="vh-200" style="background-color: #eee; border-radius: 35px; margin-top: 50px; " >
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12">
@@ -12,7 +12,7 @@
               <div class="col-lg-6">
                 <ng-container formGroupName="form1">
                 <div class="p-5">
-                  <h3 class="fw-normal mb-5" style="color: #4835d4">
+                  <h3 class="fw-normal mb-5" style="color: #3584d4">
                     Update Member
                   </h3>
 
@@ -80,11 +80,11 @@
                 </div>
               </ng-container>
               </div>
-              <div class="col-lg-6 bg-indigo text-white">
+              <div class="col-lg-6 bg-indigo text-white" style="background-color:#3584d4 ;">
                 <ng-container formGroupName="form2">
                 <div class="p-5">
                   <div class="mb-4 pb-2">
-                    <div class="form-outline">
+                    <div class="form-outline" >
                       <label class="form-label" for="form3Examplev4"
                         >Confirm Password</label
                       >
@@ -154,12 +154,13 @@
 
                   <button
                     type="button"
-                    class="btn btn-light btn-lg"
+                    class="btn btn-lg"
                     data-mdb-ripple-color="dark"
+                    style="color: #2828bc; background-color: rgb(255, 255, 255);"
                     [disabled]="!form.valid && passwordError"
                     (click)="onSubmit()"
                   >
-                    Update
+                    <b>Update</b> 
                   </button>
                   
                 </div>

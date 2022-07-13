@@ -8,17 +8,21 @@ h2 {
  background-size: cover;
  height: 110vh;
  border-radius: 20px;
+ display: flex;
 }
 
 .container {
- /*border: 2px solid rgb(149 146 146);*/
+ /* border: 2px solid rgb(149 146 146); */
  margin-top: 50px;
  padding: 30px 80px;
  border-radius: 20px;
 }
-
+.form-group{
+  width: 440px;
+}
 .row {
  height: 16vh;
+ 
 }
 
 .row__content {
@@ -56,10 +60,15 @@ small{
 }
 
 #submit-btn{
-  background-color: green;
-  margin-left: 30% !important;
+  background-color: rgb(0, 90, 128);
+  margin-left: 35% !important;
+  margin-top: 40px;
+  margin-bottom: 100px;
 }
 
 #reset-btn{
-  background-color: red;
+  background-color: rgb(0, 90, 128);
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-bottom: 100px;
 }
