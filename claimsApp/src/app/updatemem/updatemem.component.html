@@ -6,7 +6,14 @@
           class="card card-registration card-registration-2"
           style="border-radius: 15px"
         >
+        <div class="alert alert-success" role="alert" *ngIf="error!=null && !error">
+          Successfully Updated Member
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="error!=null && error">
+          Something Went Member
+        </div>
           <div class="card-body p-0">
+
             <ng-container [formGroup]="form">
             <div class="row g-0">
               <div class="col-lg-6">
@@ -168,12 +175,7 @@
               </div>
             </div>
             </ng-container>
-            <div class="alert alert-success" role="alert" *ngIf="error!=null && !error">
-              Successfully Updated Member
-            </div>
-            <div class="alert alert-danger" role="alert" *ngIf="error!=null && error">
-              Something Went Member
-            </div>
+            
 
           </div>
         </div>
